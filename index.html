@@ -129,35 +129,35 @@
         function pop_GeotagTrees_1(feature, layer) {
             var popupContent = '<table class="tree-table">\
                     <tr>\
-                        <th scope="row">Tree Number </th>\
+                        <th scope="row">Tree Number: </th>\
                         <td>' + (feature.properties['Tree_no'] !== null ? autolinker.link(feature.properties['Tree_no'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Local Name</th>\
+                        <th scope="row">Local Name:</th>\
                         <td>' + (feature.properties['Species'] !== null ? autolinker.link(feature.properties['Species'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">DBH (cm)</th>\
+                        <th scope="row">DBH (cm):</th>\
                         <td>' + (feature.properties['DBH'] !== null ? autolinker.link(feature.properties['DBH'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">MH (m)</th>\
+                        <th scope="row">MH (m):</th>\
                         <td>' + (feature.properties['MH'] !== null ? autolinker.link(feature.properties['MH'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">TH (m)</th>\
+                        <th scope="row">TH (m):</th>\
                         <td>' + (feature.properties['TH'] !== null ? autolinker.link(feature.properties['TH'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Volume (m3)</th>\
+                        <th scope="row">Volume (m3):</th>\
                         <td>' + (feature.properties['Volume'] !== null ? autolinker.link(feature.properties['Volume'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Stem Quality</th>\
+                        <th scope="row">Stem Quality:</th>\
                         <td>' + (feature.properties['Stem_Qua'] !== null ? autolinker.link(feature.properties['Stem_Qua'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Tree Category</th>\
+                        <th scope="row">Tree Category:</th>\
                         <td>' + (feature.properties['Tree_Cat'] !== null ? autolinker.link(feature.properties['Tree_Cat'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
