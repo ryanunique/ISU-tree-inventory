@@ -40,11 +40,53 @@
             display: block;
             margin: 0 auto; /* Center the image */
         }
+        
+        .dashboard {
+            position: absolute;
+            right: 10px;
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            width: 150px; /* Added fixed width for consistency */
+        }
+
+        #treeDashboard {
+                top: 150px;
+        }
+
+        #healthyTreeDashboard {
+                top: 280px;
+        }
+        
+
+        .dashboard h3 {
+                margin: 0 0 5px 0;
+                font-size: 16px;
+        }
+
+        .dashboard p {
+                margin: 0;
+                font-size: 24px;
+                font-weight: bold;
+                color: #2b8a3e;
+        }
+        
         </style>
         <title></title>
     </head>
     <body>
         <div id="map">
+            <div id="treeDashboard" class="dashboard">
+                <h3>Total number of trees inventoried</h3>
+                <p id="treeCount">0</p>
+            </div>
+            <div id="healthyTreeDashboard" class="dashboard">
+                <h3>Number of Trees with no defects</h3>
+                <p id="healthyTreeCount">0</p>
+            </div>
+            
         </div>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
@@ -303,6 +345,22 @@
         map.on("layerremove", function(){
             resetLabels([layer_GeotagTrees_1]);
         });
+        
+        var treeCount = 0;
+        var healthyTreeCount = 0;
+        
+        layer_GeotagTrees_1.eachLayer(function(layer) {
+            treeCount++;
+            // Check if the tree is healthy (assuming 'Good' indicates a healthy tree)
+            // Adjust the condition based on your actual data values
+            if (layer.feature.properties['Stem_Qua'] && 
+                layer.feature.properties['Stem_Qua'].toLowerCase() === '1') {
+                healthyTreeCount++;
+            }
+        });
+        
+        document.getElementById('treeCount').textContent = treeCount;
+        document.getElementById('healthyTreeCount').textContent = healthyTreeCount;
         </script>
     </body>
 </html>
